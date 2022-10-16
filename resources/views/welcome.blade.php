@@ -66,16 +66,28 @@
                 @endif
             </nav>
 
-            <header class="masthead">
+            <header class="">
                 <div class="container position-relative">
-                    <div class="row justify-content-center">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <h1 class="display-4 fw-bold" style="color: #EF3A2E">Find Your Helper...</h1>
+                            <p class="fs-8">We are a community of students who are passionate about helping other students
+                                succeed in their studies. We are here to help you with your studies and to help you
+                                achieve your goals.</p>
+                            <a class="btn btn-danger" href="{{url('/forum')}}" role="button">Join The Forum</a>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <img src="{{url('/img/images/heroImg.png')}}" alt="Image"/>
+                        </div>
+                    </div>
+                    {{--<div class="row justify-content-center">
                         <div class="col-xl-6">
                             <div class="text-center text-white">
                                 <h1 class="mb-5" style="font-size: 60pt; color: rgb(231, 117, 9);">FIND YOUR HELPER</h1>
                                 <h3><i>Struggling with your homeworks? Here you'll find your savior</i> </h3>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
                 </div>
             </header>
 

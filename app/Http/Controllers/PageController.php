@@ -2,19 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\IsAdmin;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function single()
-    {
-        return view('threads.show');
-    }
-
-    public function create()
-    {
-        return view('threads.create');
-    }
 
     public function users()
     {
