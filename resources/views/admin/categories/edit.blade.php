@@ -15,6 +15,15 @@
                     <div>
                         <x-form.label for="name" value="{{ __('Name') }}" />
                         <x-form.input id="name" class="block w-full mt-1" type="text" name="name" :value="$category->name" required autofocus />
+                        {{--image--}}
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Image:</strong>
+                                <input type="file" name="image" class="form-control" placeholder="image">
+                                <img src="/image/{{__('image')}}" width="300px">
+                            </div>
+                        </div>
+                        {{--slug--}}
                         <x-form.error for="name" />
                     </div>
 

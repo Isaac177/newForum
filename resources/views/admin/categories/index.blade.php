@@ -13,6 +13,7 @@
                 <thead class="bg-blue-500">
                 <tr>
                     <x-table.head>Id</x-table.head>
+                    <x-table.head>Image</x-table.head>
                     <x-table.head>Name</x-table.head>
                     <x-table.head>Slug</x-table.head>
                     <x-table.head class="text-center">Created At</x-table.head>
@@ -25,6 +26,12 @@
                     <tr>
                         <x-table.data>
                             <div>{{ $category->id }}</div>
+                        </x-table.data>
+                        <x-table.data>
+                            <div>
+                                <img src="/storage/{{$category->image}}" width="100px" alt="">
+                            </div>
+
                         </x-table.data>
                         <x-table.data>
                             <div>{{ $category->name }}</div>
