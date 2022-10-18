@@ -3,26 +3,26 @@
     {{-- Header --}}
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight">
-            {{ __('Categories: Edit') }}
+            {{ __('Tags: Edit') }}
         </h2>
     </x-slot>
 
     <section class="mx-6">
         <div class="p-8">
-            <x-form action="{{ route('admin.categories.update', $category) }}" method="PUT">
+            <x-form action="{{ route('admin.tags.update', $tag) }}" method="PUT">
                 <div class="space-y-8">
                     {{-- Name --}}
                     <div>
                         <x-form.label for="name" value="{{ __('Name') }}" />
-                        <x-form.input id="name" class="block w-full mt-1" type="text" name="name" :value="$category->name" required autofocus />
+                        <x-form.input id="name" class="block w-full mt-1" type="text" name="name" :value="$tag->name" required autofocus />
                         {{--image--}}
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        {{--<div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Image:</strong>
                                 <input type="file" name="image" class="form-control" placeholder="image">
                                 <img src="/image/{{__('image')}}" width="300px">
                             </div>
-                        </div>
+                        </div>--}}
                         {{--slug--}}
                         <x-form.error for="name" />
                     </div>
