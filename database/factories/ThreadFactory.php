@@ -16,7 +16,7 @@ class ThreadFactory extends Factory
             'title' => $this->faker->text(30),
             'body' => $this->faker->paragraph(2, true),
             'slug' => $this->faker->unique()->slug,
-            'author_id' => $attributes['author_id'] ?? User::factory()->create()->id,
+            'author_id' => rand(1, 5),
             'category_id' => rand(1, 5),
         ];
     }
