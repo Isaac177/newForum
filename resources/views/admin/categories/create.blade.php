@@ -21,7 +21,6 @@
                                 <input type="file" name="image" class="form-control" placeholder="image">
                             </div>
                         </div>
-
                         <x-form.error for="name" />
                     </div>
                     <x-buttons.primary>

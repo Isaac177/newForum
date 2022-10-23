@@ -13,7 +13,6 @@
                 <thead class="bg-blue-500">
                 <tr>
                     <x-table.head>Id</x-table.head>
-                    <x-table.head>Image</x-table.head>
                     <x-table.head>Name</x-table.head>
                     <x-table.head>Slug</x-table.head>
                     <x-table.head class="text-center">Created At</x-table.head>

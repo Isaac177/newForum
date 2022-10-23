@@ -16,7 +16,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::delete('categories/{category}', [CategoryController::class, 'delete'])->name('categories.delete');
 
     Route::resource('tags', TagController::class);
-    /*index route*/
     Route::get('tags', [TagController::class, 'index'])->name('tags.index');
     Route::get('tags/create', [TagController::class, 'create'])->name('tags.create');
     Route::post('tags', [TagController::class, 'store'])->name('tags.store');

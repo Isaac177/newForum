@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     @livewireStyles
 
@@ -40,20 +42,17 @@
                     </div>
                 </header>
                 @endif
-
+                <div class="mx-6 mt-6">
+                    <x-alerts.main />
+                </div>
                 <!-- Page Content -->
                 <main class="m-6 bg-white shadow">
                     <div class="py-6">
                         {{ $slot }}
                     </div>
                 </main>
-
             </div>
-
         </div>
-
-
-
     </div>
 
     @stack('modals')
