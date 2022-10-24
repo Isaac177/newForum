@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Http\Controllers\Pages\ThreadController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Pages\HomeController;
@@ -14,6 +15,15 @@ Route::get('/', function () {
 
 Route::get('/forum', [HomeController::class, 'index'])->name('home');
 
+//threads
+
+//Route::get('/forum/threads', [ThreadController::class, 'index'])->name('threads.index');
+
+Route::get('/forum/threads', [ThreadController::class, 'index'])->name('threads.index');
+/*Route::group(['prefix' => 'thread', 'as' => 'threads.'], function () {
+    Route::get('forum/threads', [ThreadController::class, 'index'])->name('index');
+});*/
+
 Route::get('/category/discussion/topic', [PageController::class, 'single'])->name('single');
 
 Route::get('discussion/create', [PageController::class, 'create'])->name('create');
@@ -23,8 +33,8 @@ Route::get('dashboard/users', [PageController::class, 'users'])->name('users');
 Route::get('/dashboard/categories/index', [PageController::class, 'categoriesIndex'])->name('categories.index');
 Route::get('/dashboard/categories/create', [PageController::class, 'categoriesCreate'])->name('categories.create');
 
-Route::get('/dashboard/threads/index', [PageController::class, 'threadsIndex'])->name('threads.index');
-Route::get('/dashboard/threads/create', [PageController::class, 'threadsCreate'])->name('threads.create');
+/*Route::get('/dashboard/threads/index', [PageController::class, 'threadsIndex'])->name('threads.index');
+Route::get('/dashboard/threads/create', [PageController::class, 'threadsCreate'])->name('threads.create');*/
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
