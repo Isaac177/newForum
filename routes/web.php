@@ -15,14 +15,8 @@ Route::get('/', function () {
 
 Route::get('/forum', [HomeController::class, 'index'])->name('home');
 
-//threads
-
-//Route::get('/forum/threads', [ThreadController::class, 'index'])->name('threads.index');
-
 Route::get('/forum/threads', [ThreadController::class, 'index'])->name('threads.index');
-/*Route::group(['prefix' => 'thread', 'as' => 'threads.'], function () {
-    Route::get('forum/threads', [ThreadController::class, 'index'])->name('index');
-});*/
+Route::get('/forum/threads/{category:slug}/{thread:slug}', [ThreadController::class, 'show'])->name('threads.show');
 
 Route::get('/category/discussion/topic', [PageController::class, 'single'])->name('single');
 
