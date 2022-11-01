@@ -23,6 +23,21 @@ class Tag extends Model
         return $this->created_at->format('d-m-Y');
     }
 
+    public function id(): int
+    {
+        return $this->id;
+    }
+
+    public function name(): string
+    {
+        return $this->name;
+    }
+
+    public function slug(): string
+    {
+        return $this->slug;
+    }
+
     public function threads(): MorphToMany
     {
         return $this->morphedByMany(Thread::class, 'taggable');

@@ -3,7 +3,7 @@
     {{-- <img class="object-cover w-8 h-8 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" /> --}}
     <img class="object-cover w-16 h-16 rounded" src="{{ asset('img/images/heroImg.png') }}" alt="Person One" />
 </button>
-    <span class="text-sm">{{$user->name()}}</span>
+    {{--<span class="text-xs text-gray-500">{{$user->name()}}</span>--}}
 @else
 <span class="inline-flex rounded-md">
     <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none">

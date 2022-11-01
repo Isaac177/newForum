@@ -1,6 +1,4 @@
 
-C
-app/Models/User.php,a/9/a90f2e50cb06863b54effced365aa5f1fe7d9c88
 l
 <database/migrations/2014_10_12_000000_create_users_table.php,d/e/de963aaada5c6577b654cfbdcf083dc355b1fa2b
 F
@@ -17,8 +15,6 @@ K
 app/Traits/HasTimestamp.php,f/4/f4308ab92f3201f443fd5ffbbf61c57b63dd381d
 `
 0resources/views/admin/categories/index.blade.php,1/3/137d108c14551011ed91995ed20db9e753c2df36
-a
-1app/Http/Controllers/Admin/CategoryController.php,e/c/ecd442224fa6a3e4abf132c0bfb0f4d6a9aabe3c
 \
 ,app/Http/Controllers/Admin/TagController.php,2/e/2ebb4b56342fb390c8ce48b85f5e88877c51070d
 X

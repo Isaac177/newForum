@@ -4,8 +4,7 @@
 
         {{-- Avatar --}}
         <div class="col-span-1">
-            <x-user.avatar :user="$thread->author()" />
-            <span class="text-xs text-gray-500">{{ $thread->author()->name }}</span>
+            <x-user.avatar :user="$thread->author()"/>
         </div>
 
         {{-- Content --}}
