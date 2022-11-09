@@ -63,12 +63,6 @@ G
 -app/Http/Controllers/Pages/HomeController.php,3/b/3bb1e5a44f12684faa43b4cd8fa9ebdbb62c5402
 C
 resources/js/app.js,8/5/857628e89e6d3e0f341720284d70b5f44c757924
-]
--resources/views/pages/threads/index.blade.php,b/6/b6f78483544afaadcd4a104af6774ca275467939
-[
-+resources/views/components/thread.blade.php,d/a/dae2b038213453eceafa57c655e5208635be7dba
-F
-app/Traits/HasTags.php,f/4/f46cbefc967a0f4cc11ccd0e9959988fd3a0e56c
 T
 $resources/views/home/index.blade.php,3/e/3e2d467516373f6c5e310249c74e70a23fae7ad9
 4

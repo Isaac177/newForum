@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Str;
+use PhpParser\Builder;
 
 
 class Thread extends Model
@@ -59,5 +60,19 @@ class Thread extends Model
         $this->removeTags();
         parent::delete();
     }
+
+    public function scopeForTag($query, $tag)
+    {
+        return $query->whereHas('tagsRelation', function ($query) use ($tag) {
+            $query->where('name', $tag);
+        });
+    }
+
+    /*public function scopeForTag(Builder $query, string $tag): Builder
+    {
+        return $query->whereHas('tagsRelation', function (Builder $query) use ($tag) {
+            $query->where('tags.slug', $tag);
+        });
+    }*/
 }
 
