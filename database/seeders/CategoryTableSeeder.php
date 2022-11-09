@@ -26,7 +26,7 @@ class CategoryTableSeeder extends Seeder
             ],
             [
                 'name' => 'Java',
-                'slug' => 'Java',
+                'slug' => 'java',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
