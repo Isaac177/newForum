@@ -9,6 +9,8 @@ use App\Jobs\CreateThread;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Thread;
+use App\Policies\ThreadPolicy;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -44,15 +46,6 @@ class ThreadController extends Controller
 
     public function store(ThreadStoreRequest $request): \Illuminate\Http\RedirectResponse
     {
-        /*$thread = new Thread;
-        $thread->title = $request->title;
-        $thread->slug = Str::slug($request->title);
-        $thread->body = Purifier::clean($request->body);
-        $thread->category_id = $request->category;
-        $thread->author_id = Auth::id();
-        $thread->save();*/
-//        $thread->sync($request->tags);
-
         $this->dispatchSync(CreateThread::fromRequest($request));
 
         return redirect()->route('threads.index')->with('success', 'Thread created successfully');
@@ -60,8 +53,6 @@ class ThreadController extends Controller
 
     public function show(Category $category, Thread $thread)
     {
-        //return view('pages.threads.show', compact('thread', 'category'));
-        //return thread:lug, category:slug
         return view('pages.threads.show', [
             'category' => $category,
             'thread' => $thread,
@@ -69,12 +60,24 @@ class ThreadController extends Controller
     }
 
 
+    /**
+     * @throws AuthorizationException
+     */
     public function edit(Thread $thread)
     {
+        $this->authorize(ThreadPolicy::UPDATE, $thread);
+        /*$oldTags = $thread->tagsRelation->pluck('id')->toArray();*/
+
+        $oldTags = $thread->tags()->pluck('id')->toArray();
+
+        $selectedCategory = $thread->category;
+
         return view('pages.threads.edit', [
             'thread' => $thread,
             'categories' => Category::all(),
             'tags' => Tag::all(),
+            'oldTags' => $oldTags,
+            'selectedCategory' => $selectedCategory,
         ]);
     }
 

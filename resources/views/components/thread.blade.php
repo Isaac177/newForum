@@ -9,8 +9,7 @@
 
         {{-- Content --}}
         <div class="col-span-6 space-y-4">
-
-            <a href="{{ route('threads.show', [$thread->category->slug(), $thread->slug()]) }}" class="space-y-2">
+            <a href="{{ route('threads.show', [$thread->category->slug, $thread->slug]) }}" class="space-y-2">
                 <h2 class="text-xl tracking-wide hover:text-blue-400">
                     {{ $thread->title() }}
                 </h2>
@@ -68,7 +67,7 @@
         @can(App\Policies\ThreadPolicy::UPDATE, $thread)
         {{--Edit Button--}}
         <div class="col-span-1 absolute right-2 bottom-2">
-            <x-links.secondary href="{{ route('threads.edit', [$thread->category->slug(), $thread->slug()]) }}">
+            <x-links.secondary href="{{ route('threads.edit', $thread->slug())}}">
                 Edit </x-links.secondary>
         </div>
         @endcan

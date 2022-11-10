@@ -37,8 +37,6 @@ e
 5resources/views/components/partials/sidenav.blade.php,5/f/5f33b685408fb397ba8d9b5bdc136a1ec1687c4b
 U
 %database/seeders/UsersTableSeeder.php,2/7/2772f3d7cf5d92e076844d0740f629a6e905056d
-\
-,resources/views/pages/threads/show.blade.php,4/9/4944e4f4d5b3e70a0b3b0e1432e9183677b749cb
 C
 app/Http/Kernel.php,4/0/405f423e61f666bcedb754ae8befdce9e746176e
 F
