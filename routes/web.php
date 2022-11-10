@@ -18,6 +18,8 @@ Route::get('/forum', [HomeController::class, 'index'])->name('home');
 Route::get('/forum/threads', [ThreadController::class, 'index'])->name('threads.index');
 Route::get('/forum/threads/create', [ThreadController::class, 'create'])->name('threads.create');
 Route::post('/forum/threads', [ThreadController::class, 'store'])->name('threads.store');
+//edit
+Route::get('/forum/threads/{thread:slug}/edit', [ThreadController::class, 'edit'])->name('threads.edit');
 Route::get('/forum/threads/{category:slug}/{thread:slug}', [ThreadController::class, 'show'])->name('threads.show');
 //tag
 Route::get('/forum/threads/tag/{tag:slug}', [TagController::class, 'index'])->name('threads.tags.index');

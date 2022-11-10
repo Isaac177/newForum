@@ -71,7 +71,11 @@ class ThreadController extends Controller
 
     public function edit(Thread $thread)
     {
-        //
+        return view('pages.threads.edit', [
+            'thread' => $thread,
+            'categories' => Category::all(),
+            'tags' => Tag::all(),
+        ]);
     }
 
 
