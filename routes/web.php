@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Http\Controllers\Pages\ReplyController;
 use App\Http\Controllers\Pages\TagController;
 use App\Http\Controllers\Pages\ThreadController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,18 @@ Route::post('/forum/threads/{thread:slug}', [ThreadController::class, 'update'])
 Route::get('/forum/threads/{category:slug}/{thread:slug}', [ThreadController::class, 'show'])->name('threads.show');
 //tag
 Route::get('/forum/threads/tag/{tag:slug}', [TagController::class, 'index'])->name('threads.tags.index');
+
+Route::group(['prefix' => 'replies', 'as' => 'replies.'], function () {
+    //store
+    Route::post('/', [ReplyController::class, 'store'])->name('store');
+    //edit
+    Route::get('/{reply}/edit', [ReplyController::class, 'edit'])->name('edit');
+    //update
+    Route::post('/{reply}', [ReplyController::class, 'update'])->name('update');
+    //delete
+    Route::delete('/{reply}', [ReplyController::class, 'destroy'])->name('destroy');
+
+});
 
 Route::get('dashboard/users', [PageController::class, 'users'])->name('users');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

@@ -17,6 +17,7 @@ class Thread extends Model
     use HasTags;
     use HasAuthor;
 
+
     protected $fillable = [
         'title',
         'body',
