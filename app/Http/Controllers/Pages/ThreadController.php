@@ -69,8 +69,6 @@ class ThreadController extends Controller
         $this->authorize(ThreadPolicy::UPDATE, $thread);
         $oldTags = $thread->tagsRelation->pluck('id')->toArray();
 
-        //$oldTags = $thread->tags()->pluck('id')->toArray();
-
         $selectedCategory = $thread->category;
 
         return view('pages.threads.edit', [
@@ -93,8 +91,12 @@ class ThreadController extends Controller
     }
 
 
-    public function destroy(Thread $thread)
+    /*public function destroy(Thread $thread)
     {
-        //
-    }
+        $this->authorize(ThreadPolicy::DELETE, $thread);
+
+        $thread->delete();
+
+        return redirect()->route('threads.index')->with('success', 'Thread deleted successfully');
+    }*/
 }
