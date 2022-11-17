@@ -27,8 +27,6 @@ H
 app/Traits/HasAuthor.php,8/0/808cb5140df600b9fcbb6d2093384dee3c98f8f5
 T
 $app/Providers/AppServiceProvider.php,4/8/48b8d8112e9bdd32ee7e25b1224d6739eece1e72
-q
-Adatabase/migrations/2022_10_09_000001_create_categories_table.php,4/5/45c3e441dd358d7681bb16c11af51ee898e942f4
 V
 &app/Providers/RouteServiceProvider.php,d/4/d4febfd545b5694c9448dd8d6de9bf0531b0db61
 @
@@ -43,8 +41,6 @@ F
 public/css/choices.css,e/b/ebc431004895899d1654a34db3b54c72850054ca
 @
 public/js/app.js,3/3/33ff5b9601779f3f4bcbd328a76c18073a9a65bb
-B
-app/Models/Tag.php,6/7/67bed9c6b341ffef906e56b75e578712faaf3fa1
 W
 'app/Http/Controllers/PageController.php,1/5/155f82f9e355350beb08e118974a485a3895a33b
 `
@@ -53,13 +49,9 @@ W
 'resources/views/layouts/guest.blade.php,c/d/cd310c8920f40013a22d1f387db402a6d488249e
 b
 2resources/views/components/partials/head.blade.php,f/7/f79ab46c96f785920881d6c75f584df29e1fc252
-G
-app/Models/Category.php,8/6/864be8882565a722c1930d76fab28162156cb798
 ]
 -app/Http/Controllers/Pages/HomeController.php,3/b/3bb1e5a44f12684faa43b4cd8fa9ebdbb62c5402
 C
 resources/js/app.js,8/5/857628e89e6d3e0f341720284d70b5f44c757924
 T
 $resources/views/home/index.blade.php,3/e/3e2d467516373f6c5e310249c74e70a23fae7ad9
-4
-.env,3/c/3c84dcdc6bbe3d7817c49dcdc327b926fea1808a

@@ -41,7 +41,6 @@
                                 Posted: {{ $thread->created_at->diffForHumans() }}
                             </div>
 
-
                             {{-- Reply --}}
                             <a href="" class="flex items-center space-x-2 text-gray-500">
                                 <x-heroicon-o-reply class="w-5 h-5" />

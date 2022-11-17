@@ -67,12 +67,5 @@ class Thread extends Model
             $query->where('name', $tag);
         });
     }
-
-    /*public function scopeForTag(Builder $query, string $tag): Builder
-    {
-        return $query->whereHas('tagsRelation', function (Builder $query) use ($tag) {
-            $query->where('tags.slug', $tag);
-        });
-    }*/
 }
 

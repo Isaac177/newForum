@@ -16,13 +16,14 @@
 
                     {{-- Create --}}
                     <div class="col-span-7 space-y-6">
-                        <x-form action="{{route('threads.store')}}">
+                        <x-form action="{{route('threads.update', $thread->slug)}}">
                             <div class="space-y-8">
                                 {{-- Title --}}
                                 <div>
                                     <x-form.label for="title" value="{{ __('Title') }}" />
-                                    <x-form.input id="title" class="block w-full mt-1" type="text"
-                                                  name="title" :value="$thread->title()" required autofocus />
+                                    <x-form.input
+                                            id="title" class="block w-full mt-1" type="text"
+                                            name="title" :value="$thread->title()" required autofocus />
                                     <x-form.error for="title" />
                                 </div>
 
@@ -35,10 +36,9 @@
                                             focus:ring focus:ring-blue-200
                                             focus:ring-opacity-50">
                                         @foreach($categories as $category)
-                                            <option
-                                                    value="{{ $category->id }}"
-                                                    @if($category->id == $selectedCategory->id) selected @endif
-                                            >{{ $category->name }}
+                                            <option value="{{ $category->id }}"
+                                                    @if($category->id == $selectedCategory->id) selected @endif>
+                                                {{ $category->name }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -48,6 +48,7 @@
                                 {{-- Tags --}}
                                 <div>
                                     <x-form.label for="tags" value="{{ __('Tags') }}"/>
+
                                     <select name="tags[]" id="tags"
                                             class="w-full text-sm border-gray-300
                                             rounded-md shadow-sm focus:border-blue-300

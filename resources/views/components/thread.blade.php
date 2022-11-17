@@ -64,12 +64,30 @@
                 </a>
             </div>
         </div>
-        @can(App\Policies\ThreadPolicy::UPDATE, $thread)
+
         {{--Edit Button--}}
         <div class="col-span-1 absolute right-2 bottom-2">
-            <x-links.secondary href="{{ route('threads.edit', $thread->slug())}}">
-                Edit </x-links.secondary>
+            <div class="flex space-x-2">
+                @can(App\Policies\ThreadPolicy::UPDATE, $thread)
+                <x-links.secondary href="{{ route('threads.edit', $thread->slug())}}">
+                    Edit
+                </x-links.secondary>
+                @endcan
+
+                {{--@can(App\Policies\ThreadPolicy::DELETE, $thread)
+                <form action="{{ route('threads.destroy', $thread->slug()) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <x-links.secondary type="submit">
+                        Delete
+                    </x-links.secondary>
+                </form>
+                @endcan--}}
+
+                @can(App\Policies\ThreadPolicy::DELETE, $thread)
+                    <livewire:thread.delete />
+                @endcan
+            </div>
         </div>
-        @endcan
     </div>
 </article>

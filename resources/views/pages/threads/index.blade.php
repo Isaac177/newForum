@@ -8,7 +8,7 @@
                     <x-thread :thread="$thread" />
                 @endforeach
                 {{--Pagination--}}
-                <div class="mt">
+                <div class="mt-8">
                     {{ $threads->render() }}
                 </div>
             </div>
