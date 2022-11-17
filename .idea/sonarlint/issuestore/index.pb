@@ -43,8 +43,6 @@ F
 public/js/app.js,3/3/33ff5b9601779f3f4bcbd328a76c18073a9a65bb
 W
 'app/Http/Controllers/PageController.php,1/5/155f82f9e355350beb08e118974a485a3895a33b
-`
-0resources/views/components/user/avatar.blade.php,d/4/d4b510f1a8101ffd78b4217844ee4f1938549ce1
 W
 'resources/views/layouts/guest.blade.php,c/d/cd310c8920f40013a22d1f387db402a6d488249e
 b
