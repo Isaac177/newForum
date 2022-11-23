@@ -90,13 +90,4 @@ class ThreadController extends Controller
         return redirect()->route('threads.index')->with('success', 'Thread updated successfully');
     }
 
-
-    /*public function destroy(Thread $thread)
-    {
-        $this->authorize(ThreadPolicy::DELETE, $thread);
-
-        $thread->delete();
-
-        return redirect()->route('threads.index')->with('success', 'Thread deleted successfully');
-    }*/
 }

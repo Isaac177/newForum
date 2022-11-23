@@ -33,7 +33,7 @@
                                 <a href="{{ route('register') }}" class="link">Register</a>
                             @endif
                         @endauth
-                    <a class="btn btn-danger" href="{{url('/forum')}}" role="button">Join The Forum</a>
+                    <a class="btn btn-danger" href="{{url('/forum/threads')}}" role="button">Join The Forum</a>
                 </div>
                 @endif
             </nav>

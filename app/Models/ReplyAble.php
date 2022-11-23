@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
-// We use an interface to make sure that the model has the required methods
 
 interface ReplyAble
 {
@@ -19,7 +18,7 @@ interface ReplyAble
 
     public function deleteReplies();
 
-    public function repliesRelation(): MorphToMany;
+    public function repliesRelation(): MorphMany;
 
     public function replyAbleSubject(): string;
 }

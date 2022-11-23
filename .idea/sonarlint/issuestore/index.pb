@@ -42,8 +42,6 @@ F
 @
 public/js/app.js,3/3/33ff5b9601779f3f4bcbd328a76c18073a9a65bb
 W
-'app/Http/Controllers/PageController.php,1/5/155f82f9e355350beb08e118974a485a3895a33b
-W
 'resources/views/layouts/guest.blade.php,c/d/cd310c8920f40013a22d1f387db402a6d488249e
 b
 2resources/views/components/partials/head.blade.php,f/7/f79ab46c96f785920881d6c75f584df29e1fc252

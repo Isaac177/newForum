@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HasAuthor;
+use App\Traits\HasReplies;
 use App\Traits\HasTags;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,12 +12,16 @@ use Illuminate\Support\Str;
 use PhpParser\Builder;
 
 
-class Thread extends Model
+class Thread extends Model implements ReplyAble
 {
     use HasFactory;
     use HasTags;
     use HasAuthor;
+    use HasReplies;
 
+    const TABLE = 'threads';
+
+    protected $table = self::TABLE;
 
     protected $fillable = [
         'title',
@@ -39,6 +44,11 @@ class Thread extends Model
     public function excerpt(int $limit = 250): string
     {
         return Str::limit(strip_tags($this->body()), $limit);
+    }
+
+    public function replyAbleSubject(): string
+    {
+        return $this->title();
     }
 
     public function title(): string
@@ -67,6 +77,11 @@ class Thread extends Model
         return $query->whereHas('tagsRelation', function ($query) use ($tag) {
             $query->where('name', $tag);
         });
+    }
+
+    public function subject(): string
+    {
+        return $this->title();
     }
 }
 

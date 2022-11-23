@@ -15,11 +15,6 @@ class Delete extends Component
     public $thread;
     public $confirmingThreadDeletion = false;
 
-    /*public function authorize($ability, $arguments = [])
-    {
-        return $this->authorizeForUser(Auth::user(), $ability, $arguments);
-    }*/
-
     public function confirmThreadDeletion()
     {
         $this->resetErrorBag();

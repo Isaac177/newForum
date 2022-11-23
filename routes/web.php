@@ -19,25 +19,17 @@ Route::get('/forum', [HomeController::class, 'index'])->name('home');
 Route::get('/forum/threads', [ThreadController::class, 'index'])->name('threads.index');
 Route::get('/forum/threads/create', [ThreadController::class, 'create'])->name('threads.create');
 Route::post('/forum/threads', [ThreadController::class, 'store'])->name('threads.store');
-//edit
 Route::get('/forum/threads/{thread:slug}/edit', [ThreadController::class, 'edit'])->name('threads.edit');
-//Update
 Route::post('/forum/threads/{thread:slug}', [ThreadController::class, 'update'])->name('threads.update');
-
 Route::get('/forum/threads/{category:slug}/{thread:slug}', [ThreadController::class, 'show'])->name('threads.show');
-//tag
+
 Route::get('/forum/threads/tag/{tag:slug}', [TagController::class, 'index'])->name('threads.tags.index');
 
 Route::group(['prefix' => 'replies', 'as' => 'replies.'], function () {
-    //store
     Route::post('/', [ReplyController::class, 'store'])->name('store');
-    //edit
     Route::get('/{reply}/edit', [ReplyController::class, 'edit'])->name('edit');
-    //update
     Route::post('/{reply}', [ReplyController::class, 'update'])->name('update');
-    //delete
-    Route::delete('/{reply}', [ReplyController::class, 'destroy'])->name('destroy');
-
+    Route::delete('/{reply}', [ReplyController::class, 'destroy'])->name('delete');
 });
 
 Route::get('dashboard/users', [PageController::class, 'users'])->name('users');
