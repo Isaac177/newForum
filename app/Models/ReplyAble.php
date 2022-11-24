@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
+// ReplyAble is an interface that can be used in any model that has replies
 
 interface ReplyAble
 {

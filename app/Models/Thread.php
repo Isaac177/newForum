@@ -17,7 +17,7 @@ class Thread extends Model implements ReplyAble
     use HasFactory;
     use HasTags;
     use HasAuthor;
-    use HasReplies;
+    use HasReplies; // HasReplies is a trait that can be used in any model that has replies
 
     const TABLE = 'threads';
 

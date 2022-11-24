@@ -25,8 +25,6 @@ W
 'database/seeders/ThreadsTableSeeder.php,a/9/a9ac3b4e53436500451cddd07c1381c4e8276d0b
 H
 app/Traits/HasAuthor.php,8/0/808cb5140df600b9fcbb6d2093384dee3c98f8f5
-T
-$app/Providers/AppServiceProvider.php,4/8/48b8d8112e9bdd32ee7e25b1224d6739eece1e72
 V
 &app/Providers/RouteServiceProvider.php,d/4/d4febfd545b5694c9448dd8d6de9bf0531b0db61
 @
