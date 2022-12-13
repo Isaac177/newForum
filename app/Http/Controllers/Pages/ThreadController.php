@@ -8,16 +8,12 @@ use App\Http\Requests\ThreadStoreRequest;
 use App\Jobs\CreateThread;
 use App\Jobs\UpdateThread;
 use App\Models\Category;
+use App\Models\Reply;
 use App\Models\Tag;
 use App\Models\Thread;
 use App\Policies\ThreadPolicy;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
-use Mews\Purifier\Facades\Purifier;
 
 class ThreadController extends Controller
 {
@@ -30,9 +26,11 @@ class ThreadController extends Controller
     public function index()
     {
         return view('pages.threads.index', [
-            /*'threads' => Thread::with('authorRelation', 'category', 'tagsRelation')->paginate(10),*/
-            //threads order by id
-            'threads' => Thread::with('authorRelation', 'category', 'tagsRelation')->orderBy('id', 'desc')->paginate(10),
+            'threads' => Thread::with(
+                'authorRelation',
+                'category',
+                'tagsRelation'
+            )->orderBy('id', 'desc')->paginate(10),
         ]);
     }
 
@@ -52,11 +50,13 @@ class ThreadController extends Controller
         return redirect()->route('threads.index')->with('success', 'Thread created successfully');
     }
 
-    public function show(Category $category, Thread $thread)
+    public function show(Category $category, Thread $thread, Reply $reply)
     {
         return view('pages.threads.show', [
             'category' => $category,
             'thread' => $thread,
+            'replies' => $thread->replies()->paginate(10),
+            'reply' => $reply,
         ]);
     }
 

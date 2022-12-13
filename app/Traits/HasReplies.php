@@ -5,21 +5,20 @@ namespace App\Traits;
 use App\Models\Reply;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
-// HasReplies is a trait that can be used in any model that has replies
 
 trait HasReplies
 {
-    public function replies() // replies() is a method that returns a MorphMany relationship
+    public function replies()
     {
         return $this->repliesRelation();
     }
 
-    public function latestReply(int $amount = 5) // latestReply() is a method that returns the latest replies
+    public function latestReply(int $amount = 5)
     {
         return $this->repliesRelation()->latest()->limit($amount)->get();
     }
 
-    public function deleteReplies() // deleteReplies() is a method that deletes all replies
+    public function deleteReplies()
     {
         foreach ($this->repliesRelation()->get() as $reply) {
             $reply->delete();
@@ -28,7 +27,7 @@ trait HasReplies
         $this->unsetRelation('repliesRelation');
     }
 
-    public function repliesRelation(): MorphMany // repliesRelation() is a method that returns a MorphMany relationship
+    public function repliesRelation(): MorphMany
     {
         return $this->morphMany(Reply::class, 'repliesRelation', 'replyAble_type', 'replyAble_id');
     }

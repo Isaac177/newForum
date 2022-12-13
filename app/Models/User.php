@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
+use App\Traits\HasAuthor;
 use App\Traits\ModelHelpers;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -19,6 +22,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use Notifiable;
     use TwoFactorAuthenticatable;
     use ModelHelpers;
+    use HasAuthor;
 
     const DEFAULT = 1;
     const MODERATOR = 2;
@@ -75,5 +79,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function name(): string
     {
         return $this->name;
+    }
+
+    public function author(): BelongsTo
+    {
+        return $this->belongsTo(HasAuthor::class);
     }
 }

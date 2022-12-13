@@ -6,6 +6,7 @@ use App\Models\ReplyAble;
 use App\Models\Thread;
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class CreateReplyRequest extends FormRequest
 {
@@ -15,13 +16,12 @@ class CreateReplyRequest extends FormRequest
         return true;
     }
 
-
     public function rules() : array
     {
         return [
             'body' => ['required'],
             'replyAble_id' => ['required'],
-            'replyAble_type' => ['required', 'in' . Thread::TABLE],
+            'replyAble_type' => ['required'],
         ];
     }
 
@@ -41,7 +41,8 @@ class CreateReplyRequest extends FormRequest
 
     public function author() : User
     {
-        return $this->user();
+            return Auth::user();
+
     }
 
     public function body() : string

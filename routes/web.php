@@ -25,11 +25,16 @@ Route::get('/forum/threads/{category:slug}/{thread:slug}', [ThreadController::cl
 
 Route::get('/forum/threads/tag/{tag:slug}', [TagController::class, 'index'])->name('threads.tags.index');
 
+/*Route::post('/forum/threads/{thread:slug}',
+    [ReplyController::class, 'store']
+)->name('replies.store')->middleware('auth');*/
+
+//Route::get('/forum/threads/{category:slug}/{thread:slug}', [ReplyController::class, 'show'])->name('threads.show');
+
 Route::group(['prefix' => 'replies', 'as' => 'replies.'], function () {
     Route::post('/', [ReplyController::class, 'store'])->name('store');
-    Route::get('/{reply}/edit', [ReplyController::class, 'edit'])->name('edit');
-    Route::post('/{reply}', [ReplyController::class, 'update'])->name('update');
-    Route::delete('/{reply}', [ReplyController::class, 'destroy'])->name('delete');
+    Route::get('/{reply}', [ReplyController::class, 'show'])->name('show');
+
 });
 
 Route::get('dashboard/users', [PageController::class, 'users'])->name('users');

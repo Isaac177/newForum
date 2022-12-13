@@ -14,7 +14,6 @@ class ReplyPolicy
     const UPDATE = 'update';
     const DELETE = 'delete';
 
-    // The create method is used to determine if a user can create a reply, same for delete and update
 
     public function create(User $user): bool
     {

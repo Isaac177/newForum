@@ -1,6 +1,4 @@
 
-l
-<database/migrations/2014_10_12_000000_create_users_table.php,d/e/de963aaada5c6577b654cfbdcf083dc355b1fa2b
 F
 config/filesystems.php,0/8/0851bcf6cd0903bba3a25c52b3b65e4e473a57d6
 T
@@ -23,8 +21,6 @@ C
 database/.gitignore,0/6/0641c680b942e021758f1e1713924e74c8e04e24
 W
 'database/seeders/ThreadsTableSeeder.php,a/9/a9ac3b4e53436500451cddd07c1381c4e8276d0b
-H
-app/Traits/HasAuthor.php,8/0/808cb5140df600b9fcbb6d2093384dee3c98f8f5
 V
 &app/Providers/RouteServiceProvider.php,d/4/d4febfd545b5694c9448dd8d6de9bf0531b0db61
 @
@@ -33,14 +29,10 @@ e
 5resources/views/components/partials/sidenav.blade.php,5/f/5f33b685408fb397ba8d9b5bdc136a1ec1687c4b
 U
 %database/seeders/UsersTableSeeder.php,2/7/2772f3d7cf5d92e076844d0740f629a6e905056d
-C
-app/Http/Kernel.php,4/0/405f423e61f666bcedb754ae8befdce9e746176e
 F
 public/css/choices.css,e/b/ebc431004895899d1654a34db3b54c72850054ca
 @
 public/js/app.js,3/3/33ff5b9601779f3f4bcbd328a76c18073a9a65bb
-W
-'resources/views/layouts/guest.blade.php,c/d/cd310c8920f40013a22d1f387db402a6d488249e
 b
 2resources/views/components/partials/head.blade.php,f/7/f79ab46c96f785920881d6c75f584df29e1fc252
 ]
@@ -49,3 +41,19 @@ C
 resources/js/app.js,8/5/857628e89e6d3e0f341720284d70b5f44c757924
 T
 $resources/views/home/index.blade.php,3/e/3e2d467516373f6c5e310249c74e70a23fae7ad9
+S
+#app/Http/Livewire/Thread/Delete.php,1/8/18b009cde7ad891c402429b1cb48c419f50032e2
+U
+%app/Providers/AuthServiceProvider.php,a/5/a526ceaeed37cec3622903d924e7bbaf01d42971
+Q
+!resources/views/welcome.blade.php,0/c/0c96dd63e07fb2e889aeaea5cbabd89d0d09f1fb
+S
+#app/Http/Controllers/Controller.php,2/e/2ed23e1749f02eb8e561f0a531d07863e7cf9fb9
+W
+'app/Http/Controllers/PageController.php,1/5/155f82f9e355350beb08e118974a485a3895a33b
+_
+/resources/views/components/form/error.blade.php,3/1/31e823fa60111790adc8174a6de12ee6065b4de5
+T
+$app/Providers/AppServiceProvider.php,4/8/48b8d8112e9bdd32ee7e25b1224d6739eece1e72
+a
+1resources/views/pages/threads/show.copy.blade.php,1/2/1234c8799db52e3e332335e1e2b0e34ab992db83

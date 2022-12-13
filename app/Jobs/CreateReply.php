@@ -4,23 +4,19 @@ namespace App\Jobs;
 
 use App\Http\Requests\CreateReplyRequest;
 use App\Models\Reply;
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\SerializesModels;
+use App\Models\ReplyAble;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Mews\Purifier\Facades\Purifier;
 
-class CreateReply implements ShouldQueue
-{
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+class  CreateReply
+{
     private $author;
     private $replyAble;
     private $body;
 
-    public function __construct(string $author, string $replyAble, string $body)
+    public function __construct(User $author, ReplyAble $replyAble, string $body)
     {
         $this->author = $author;
         $this->replyAble = $replyAble;
@@ -29,8 +25,9 @@ class CreateReply implements ShouldQueue
 
     public static function fromRequest(CreateReplyRequest $request): self
     {
+        $user = User::find(Auth::id());
         return new static(
-            $request->author(),
+            $user,
             $request->replyAble(),
             $request->body()
         );
@@ -40,7 +37,9 @@ class CreateReply implements ShouldQueue
     public function handle(): Reply
     {
         $reply = new Reply(['body' => Purifier::clean($this->body)]);
+
         $reply->isAuthoredBy($this->author);
+
         $reply->to($this->replyAble);
         $reply->save();
 

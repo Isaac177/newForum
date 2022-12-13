@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Str;
-use PhpParser\Builder;
+
 
 
 class Thread extends Model implements ReplyAble
@@ -17,7 +17,7 @@ class Thread extends Model implements ReplyAble
     use HasFactory;
     use HasTags;
     use HasAuthor;
-    use HasReplies; // HasReplies is a trait that can be used in any model that has replies
+    use HasReplies;
 
     const TABLE = 'threads';
 
@@ -82,6 +82,24 @@ class Thread extends Model implements ReplyAble
     public function subject(): string
     {
         return $this->title();
+    }
+
+    public function isConversationOld(): bool
+    {
+        return $this->created_at->diffInDays(now()) > 30;
+    }
+
+    public function author(): User
+    {
+        return $this->authorRelation;
+    }/*
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }*/
+
+    public function thread(): Thread
+    {
+        return $this;
     }
 }
 

@@ -21,10 +21,14 @@ class Reply extends Model
 
     protected $table = 'replies';
 
+    protected $primaryKey = 'replyAble_id';
+
     protected $fillable = [
         'body',
-        'author_id',
-        'thread_id',
+        'replyAble_id',
+        'replyAble_type',
+        //'author_id',
+        //'thread_id',
     ];
 
     public function id(): int
@@ -34,7 +38,7 @@ class Reply extends Model
 
     public function body(): string
     {
-        return $this->body;
+        return $this->body();
     }
 
     public function excerpt(int $limit = 250): string
@@ -42,19 +46,19 @@ class Reply extends Model
         return Str::limit(strip_tags($this->body()), $limit);
     }
 
-    public function to(ReplyAble $replyAble)
+    public function replyAble(): MorphTo
     {
-        return $this->replyAbleRelation()->associate($replyAble);
+        return $this->morphTo();
     }
 
-    public function replyAble(): ReplyAble
+    public function to(): MorphMany
     {
-        return $this->replyAbleRelation;
+        return $this->morphMany(User::class, 'replyAble', 'replies', 'replyAble_id', 'replyAble_type');
     }
 
-    public function replyAbleRelation(): MorphMany
+    public function thread(): MorphTo
     {
-        return $this->morphMany('replyAbleRelation', 'replyAble_type', 'replyAble_id');
+        return $this->morphTo();
     }
 }
 

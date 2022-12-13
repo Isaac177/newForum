@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
-// ReplyAble is an interface that can be used in any model that has replies
-
 interface ReplyAble
 {
     public function subject(): string;
@@ -21,5 +19,9 @@ interface ReplyAble
 
     public function repliesRelation(): MorphMany;
 
+    public function isConversationOld(): bool;
+
     public function replyAbleSubject(): string;
+
+    public function thread(): Thread;
 }

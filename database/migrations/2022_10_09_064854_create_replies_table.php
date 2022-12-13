@@ -12,9 +12,10 @@ class CreateRepliesTable extends Migration
         Schema::create('replies', function (Blueprint $table) {
             $table->id();
             $table->text('body');
-            $table->integer('replyAble_id');
-            $table->string('replyAble_type')->default('threads');
-            $table->foreignId('author_id')->constrained('users');
+            $table->integer('replyAble_id')->nullable();
+            $table->string('replyAble_type')->default('threads')->nullable();
+            //$table->foreignId('author_id')->constrained('users');
+            //$table->foreignId('thread_id')->constrained('threads');
             $table->timestamps();
         });
     }
