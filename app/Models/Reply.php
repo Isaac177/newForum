@@ -19,6 +19,9 @@ class Reply extends Model
     use HasTimestamps;
     use ModelHelpers;
 
+    /**
+     * @var mixed
+     */
     protected $table = 'replies';
 
     protected $primaryKey = 'replyAble_id';
@@ -27,8 +30,8 @@ class Reply extends Model
         'body',
         'replyAble_id',
         'replyAble_type',
-        //'author_id',
-        //'thread_id',
+        'author_id',
+        'thread_id',
     ];
 
     public function id(): int
@@ -59,6 +62,11 @@ class Reply extends Model
     public function thread(): MorphTo
     {
         return $this->morphTo();
+    }
+
+    public function replyAbleSubject(): string
+    {
+        return $this->replyAble()->subject();
     }
 }
 

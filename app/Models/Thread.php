@@ -36,6 +36,11 @@ class Thread extends Model implements ReplyAble
         'tagsRelation',
     ];
 
+    public function id(): int
+    {
+        return $this->id;
+    }
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);

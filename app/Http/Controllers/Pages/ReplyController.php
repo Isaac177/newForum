@@ -55,9 +55,9 @@ class  ReplyController extends Controller
 
     public function store(Thread $thread, CreateReplyRequest $request)
     {
-//        $this->authorize(ReplyPolicy::CREATE, Reply::class);
+        $this->authorize(ReplyPolicy::CREATE, Reply::class);
 
-        $request->merge(['thread_id' => $thread->id]);
+        //$request->merge(['thread_id' => $thread->id]);
 
         $this->dispatchSync(CreateReply::fromRequest($request));
 

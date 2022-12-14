@@ -14,7 +14,7 @@ class CreateRepliesTable extends Migration
             $table->text('body');
             $table->integer('replyAble_id')->nullable();
             $table->string('replyAble_type')->default('threads')->nullable();
-            //$table->foreignId('author_id')->constrained('users');
+            $table->foreignId('author_id')->constrained('users');
             //$table->foreignId('thread_id')->constrained('threads');
             $table->timestamps();
         });

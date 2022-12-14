@@ -56,6 +56,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'profile_photo_url',
     ];
 
+    public function id(): int
+    {
+        return $this->id;
+    }
+
     public function type(): int
     {
         return $this->type;
