@@ -19,8 +19,6 @@ K
 0resources/views/components/alerts/main.blade.php,0/9/09b4602d00c1f368651fce6e976d9273d93a31b1
 C
 database/.gitignore,0/6/0641c680b942e021758f1e1713924e74c8e04e24
-W
-'database/seeders/ThreadsTableSeeder.php,a/9/a9ac3b4e53436500451cddd07c1381c4e8276d0b
 V
 &app/Providers/RouteServiceProvider.php,d/4/d4febfd545b5694c9448dd8d6de9bf0531b0db61
 @
