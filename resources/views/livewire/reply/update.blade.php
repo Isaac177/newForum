@@ -1,5 +1,4 @@
 <div>
-
      <div x-data="
         {
             editReply: false,
@@ -8,26 +7,36 @@
                 textInput.focus();
                 console.log('textInput');
             },
+        }" x-cloak>
 
-        }
-     ">
-          <form wire:submit.prevent="updateReply">
-               <textarea
-                    wire:model="body"
-                    class="w-full p-2 border border-gray-300 rounded"
-                    placeholder="Have something to say?"
-               ></textarea>
-               @error('body')
-               <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-               @enderror
-               <div class="flex justify-end mt-2">
-                    <button
-                         type="submit"
-                         class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
-                    >
-                         Update
-                    </button>
-               </div>
-            </form>
+          <div x-show="!editReply" class="relative">
+               {{$replyOrigBody}}
+               <x-link.secondary
+                       class="absolute cursor-pointer top-2 right-2"
+                       x-on:click="editReply = true; $nextTick(() => focus())">
+                    {{ __('Edit') }}
+                </x-link.secondary>
+          </div>
+
+          <div x-show="editReply">
+               <form wire:submit.prevent="updateReply">
+                    <input
+                            type="text"
+                            class="w-full bg-gray-100 border-none shadow-inner focus:ring-blue-500"
+                            name="replyNewBody"
+                            wire:model.lazy="replyNewBody"
+                            x-ref="textInput"
+                            x-on:keydown.enter="editReply = false"
+                            x-on:keydown.escape="editReply = false" >
+                    <div class="mt-2 space-x-3 text-sm">
+                         <button type="button" class="text-green-400" x-on:click="editReply = false">
+                              {{ __('Save') }}
+                            </button>
+                            <button type="button" class="text-red-400" x-on:click="editReply = false">
+                                {{ __('Cancel') }}
+                            </button>
+                    </div>
+                 </form>
+          </div>
      </div>
 </div>
