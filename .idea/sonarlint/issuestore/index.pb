@@ -43,8 +43,6 @@ T
 $resources/views/home/index.blade.php,3/e/3e2d467516373f6c5e310249c74e70a23fae7ad9
 S
 #app/Http/Livewire/Thread/Delete.php,1/8/18b009cde7ad891c402429b1cb48c419f50032e2
-U
-%app/Providers/AuthServiceProvider.php,a/5/a526ceaeed37cec3622903d924e7bbaf01d42971
 Q
 !resources/views/welcome.blade.php,0/c/0c96dd63e07fb2e889aeaea5cbabd89d0d09f1fb
 S
@@ -55,5 +53,3 @@ _
 /resources/views/components/form/error.blade.php,3/1/31e823fa60111790adc8174a6de12ee6065b4de5
 T
 $app/Providers/AppServiceProvider.php,4/8/48b8d8112e9bdd32ee7e25b1224d6739eece1e72
-a
-1resources/views/pages/threads/show.copy.blade.php,1/2/1234c8799db52e3e332335e1e2b0e34ab992db83

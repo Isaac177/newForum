@@ -3,19 +3,28 @@
 namespace App\Http\Livewire\Reply;
 
 use App\Models\Reply;
+use App\Policies\ReplyPolicy;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 
 class Update extends Component
 
 {
+    use AuthorizesRequests;
     public $replyId;
     public $replyOrigBody;
     public $replyNewBody;
+    public $author;
+    public $createdAt;
+
+    protected $listeners = ['deleteReply'];
 
     public function mount(Reply $reply)
     {
         $this->replyId = $reply->id;
         $this->replyOrigBody = $reply->body;
+        $this->author = $reply->author;
+        $this->createdAt = $reply->created_at;
 
         $this->initialize($reply);
     }
@@ -23,9 +32,12 @@ class Update extends Component
     public function updateReply()
     {
         $reply = Reply::findOrFail($this->replyId);
+
+        $this->authorize(ReplyPolicy::UPDATE, $reply);
+
         $reply->body = $this->replyNewBody;
         $reply->save();
-        session()->flash('message', 'Reply updated.');
+
         $this->initialize($reply);
     }
 
@@ -39,6 +51,12 @@ class Update extends Component
     {
         $reply->update(['body' => $this->oldReply]);
         $this->emit('replyUpdated');
+    }
+
+    public function deleteReply($page)
+    {
+        session()->flash('message', 'Reply deleted.');
+        return redirect()->to('/threads/' . $page);
     }
 
     public function render()
