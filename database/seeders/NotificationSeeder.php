@@ -8,7 +8,6 @@ use Illuminate\Database\Seeder;
 
 class NotificationSeeder extends Seeder
 {
-
     public function run()
     {
         Reply::all()->each(function ($reply) {

@@ -8,6 +8,7 @@ use App\Models\ReplyAble;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Mews\Purifier\Facades\Purifier;
+use App\Events\ReplyWasCreated;
 
 
 class  CreateReply
@@ -33,15 +34,24 @@ class  CreateReply
         );
     }
 
-
     public function handle(): Reply
     {
-        $reply = new Reply(['body' => Purifier::clean($this->body)]);
+        if (!$this->author || !$this->author instanceof User) {
+            abort(404);
+        }
+
+        //$reply = new Reply(['body' => Purifier::clean($this->body)]);
+        $reply = new Reply(['body' => $this->body]);
+        //$reply->author()->associate($this->author);
+
+        $reply->author_id = $this->author->id;
 
         $reply->isAuthoredBy($this->author);
 
         $reply->to($this->replyAble);
         $reply->save();
+
+        event(new ReplyWasCreated($reply));
 
         return $reply;
     }

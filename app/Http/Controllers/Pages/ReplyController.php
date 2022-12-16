@@ -29,40 +29,14 @@ class  ReplyController extends Controller
      * @throws AuthorizationException
      * @throws ValidationException
      */
-    /*public function store(CreateReplyRequest $request): \Illuminate\Http\RedirectResponse
-    {
-        $this->authorize(ReplyPolicy::CREATE, Reply::class);
-
-        $this->dispatchSync(CreateReply::fromRequest($request));
-
-        $thread = Thread::find($request->thread_id);
-        $thread->replies()->create([
-            'body' => $request->body,
-            'user_id' => auth()->id(),
-        ]);
-
-        return redirect()->back()->with('success', 'Reply created successfully');
-
-        return redirect()->route(
-            'threads.show',
-            [
-                'category' => $thread->category->slug,
-                'thread' => $thread->slug,
-            ]
-            //[$thread->category, $thread]
-        )->with('success', 'Reply created successfully');
-    }*/
 
     public function store(Thread $thread, CreateReplyRequest $request)
     {
         $this->authorize(ReplyPolicy::CREATE, Reply::class);
 
-        //$request->merge(['thread_id' => $thread->id]);
-
         $this->dispatchSync(CreateReply::fromRequest($request));
 
         return redirect()->back()->with('success', 'Reply created successfully');
-
     }
 
    public function show(Thread $thread, Reply $reply)

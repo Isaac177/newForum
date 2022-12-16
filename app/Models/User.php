@@ -56,6 +56,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'profile_photo_url',
     ];
 
+
     public function id(): int
     {
         return $this->id;
@@ -100,4 +101,5 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsTo(HasAuthor::class);
     }
+
 }

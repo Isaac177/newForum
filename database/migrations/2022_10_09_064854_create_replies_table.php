@@ -8,7 +8,7 @@ class CreateRepliesTable extends Migration
 {
 
     public function up()
-    {
+    /*{
         Schema::create('replies', function (Blueprint $table) {
             $table->id();
             $table->text('body');
@@ -18,7 +18,21 @@ class CreateRepliesTable extends Migration
             //$table->foreignId('thread_id')->constrained('threads');
             $table->timestamps();
         });
+    }*/
+    {
+        Schema::create('replies', function (Blueprint $table) {
+            $table->id();
+            $table->text('body');
+            $table->integer('replyAble_id')->nullable();
+            $table->string('replyAble_type')->default('threads')->nullable();
+            $table->bigInteger('author_id')->unsigned();  // Add this line
+            //$table->foreignId('thread_id')->constrained('threads');
+            $table->timestamps();
+        });
+
     }
+
+
 
     public function down()
     {
