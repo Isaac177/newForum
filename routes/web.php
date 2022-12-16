@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Http\Controllers\Dashboard\NotificationController;
 use App\Http\Controllers\Pages\ReplyController;
 use App\Http\Controllers\Pages\TagController;
 use App\Http\Controllers\Pages\ThreadController;
@@ -41,3 +42,11 @@ Route::get('dashboard/users', [PageController::class, 'users'])->name('users');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'],
+function() {
+    Route::group(['prefix' => 'notifications', 'as' => 'notifications.'],
+    function(){
+        Route::get('/', [NotificationController::class, 'index'])->name('index');
+    });
+});

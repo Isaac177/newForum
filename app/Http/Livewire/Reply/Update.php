@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Reply;
 use App\Models\Reply;
 use App\Policies\ReplyPolicy;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Update extends Component
@@ -59,8 +60,14 @@ class Update extends Component
         return redirect()->to('/threads/' . $page);
     }
 
-    public function render()
+    public function render(): View
     {
-        return view('livewire.reply.update');
+        return view('livewire.reply.update', [
+            'replyId' => $this->replyId,
+            'replyOrigBody' => $this->replyOrigBody,
+            'replyNewBody' => $this->replyNewBody,
+            'author' => $this->author,
+            'createdAt' => $this->createdAt,
+        ]);
     }
 }
