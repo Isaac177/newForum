@@ -11,6 +11,8 @@ class ThreadPolicy
 
     const UPDATE = 'update';
     const DELETE = 'delete';
+    const SUBSCRIBE = 'subscribe';
+    const UNSUBSCRIBE = 'unsubscribe';
 
     public function update(User $user, Thread $thread): bool
     {
@@ -20,6 +22,16 @@ class ThreadPolicy
     public function delete(User $user, Thread $thread): bool
     {
         return $thread->isAuthoredBy($user) || $user->isAdmin() || $user->isModerator();
+    }
+
+    public function subscribe(User $user, Thread $thread): bool
+    {
+        return !$thread->hasSubscriber($user);
+    }
+
+    public function unsubscribe(User $user, Thread $thread): bool
+    {
+        return $thread->hasSubscriber($user);
     }
 
 }

@@ -45,8 +45,6 @@ W
 'resources/views/layouts/guest.blade.php,c/d/cd310c8920f40013a22d1f387db402a6d488249e
 d
 4resources/views/components/partials/footer.blade.php,e/a/eab83f7a083b8e482c35dc493ddf43e4afb4caaa
-_
-/app/Http/Controllers/Pages/ThreadController.php,e/a/eac2953e1d3dcf6e533724b6246cebb1d03edced
 `
 0resources/views/components/user/avatar.blade.php,d/4/d4b510f1a8101ffd78b4217844ee4f1938549ce1
 ]
@@ -69,8 +67,6 @@ n
 >database/migrations/2022_10_09_064854_create_replies_table.php,f/4/f47624f71078ebfc3e5f4f3af5603edf2a66da43
 X
 (app/Http/Requests/CreateReplyRequest.php,c/4/c460bd6cd878342c24392bf75c5fd0bc68da8fbb
-t
-Ddatabase/migrations/2022_12_14_074128_create_notifications_table.php,4/d/4d74eea7228f71e0e306ef1cde5c8d292ca63ef3
 Z
 *app/Notifications/NewReplyNotification.php,6/6/6626899c813e58068d954510172026d8afb99e75
 N

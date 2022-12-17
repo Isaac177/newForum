@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Middleware\Authenticate;
 use App\Http\Requests\ThreadStoreRequest;
 use App\Jobs\CreateThread;
+use App\Jobs\SubscribeToSubscriptionAble;
+use App\Jobs\UnsubscribeFromSubscriptionAble;
 use App\Jobs\UpdateThread;
 use App\Models\Category;
 use App\Models\Reply;
@@ -14,6 +16,7 @@ use App\Models\Thread;
 use App\Policies\ThreadPolicy;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
+use Illuminate\Http\Request;
 
 class ThreadController extends Controller
 {
@@ -90,4 +93,25 @@ class ThreadController extends Controller
         return redirect()->route('threads.index')->with('success', 'Thread updated successfully');
     }
 
+    public function subscribe(Thread $thread, Request $request)
+    {
+        $thread->authorize(ThreadPolicy::SUBSCRIBE, $thread);
+
+        $this->dispatchSync(new SubscribeToSubscriptionAble($request->user(), $thread));
+
+        return redirect()
+            ->route('threads.show', [$thread->category->slug, $thread->slug])
+            ->with('success', 'Subscribed successfully');
+    }
+
+    public function unsubscribe(Thread $thread, Request $request)
+    {
+        $thread->authorize(ThreadPolicy::UNSUBSCRIBE, $thread);
+
+        $this->dispatchSync(new UnsubscribeFromSubscriptionAble($request->user(), $thread, true));
+
+        return redirect()
+            ->route('threads.show', [$thread->category->slug, $thread->slug])
+            ->with('success', 'Unsubscribed successfully');
+    }
 }

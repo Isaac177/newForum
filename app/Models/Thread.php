@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\HasAuthor;
 use App\Traits\HasLikes;
 use App\Traits\HasReplies;
+use App\Traits\HasSubscriptions;
 use App\Traits\HasTags;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,13 +14,14 @@ use Illuminate\Support\Str;
 
 
 
-class Thread extends Model implements ReplyAble
+class Thread extends Model implements ReplyAble, SubscriptionAble
 {
     use HasFactory;
     use HasTags;
     use HasLikes;
     use HasAuthor;
     use HasReplies;
+    use HasSubscriptions;
 
     const TABLE = 'threads';
 

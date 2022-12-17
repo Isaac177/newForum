@@ -16,6 +16,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/forum', [HomeController::class, 'index'])->name('home');
 Route::get('/forum/threads', [ThreadController::class, 'index'])->name('threads.index');
 Route::get('/forum/threads/create', [ThreadController::class, 'create'])->name('threads.create');
@@ -23,6 +24,11 @@ Route::post('/forum/threads', [ThreadController::class, 'store'])->name('threads
 Route::get('/forum/threads/{thread:slug}/edit', [ThreadController::class, 'edit'])->name('threads.edit');
 Route::post('/forum/threads/{thread:slug}', [ThreadController::class, 'update'])->name('threads.update');
 Route::get('/forum/threads/{category:slug}/{thread:slug}', [ThreadController::class, 'show'])->name('threads.show');
+
+/* Subscribe route */
+
+Route::get('/forum/threads/{thread}/subscribe', [ThreadController::class, 'subscribe'])->name('threads.subscribe');
+Route::get('/forum/threads/{thread}/unsubscribe', [ThreadController::class, 'unsubscribe'])->name('threads.unsubscribe');
 
 Route::get('/forum/threads/tag/{tag:slug}', [TagController::class, 'index'])->name('threads.tags.index');
 
