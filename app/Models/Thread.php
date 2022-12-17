@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HasAuthor;
+use App\Traits\HasLikes;
 use App\Traits\HasReplies;
 use App\Traits\HasTags;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,6 +17,7 @@ class Thread extends Model implements ReplyAble
 {
     use HasFactory;
     use HasTags;
+    use HasLikes;
     use HasAuthor;
     use HasReplies;
 
@@ -31,8 +33,9 @@ class Thread extends Model implements ReplyAble
     ];
 
     protected $with = [
-        'authorRelation',
         'category',
+        'likesRelation',
+        'authorRelation',
         'tagsRelation',
     ];
 

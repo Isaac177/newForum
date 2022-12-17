@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Traits\HasAuthor;
+use App\Traits\HasLikes;
+use App\Traits\HasReplies;
 use App\Traits\ModelHelpers;
 use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,8 +18,11 @@ class Reply extends Model
 {
     use HasFactory;
     use HasAuthor;
+    use HasLikes;
     use HasTimestamps;
     use ModelHelpers;
+
+    const TABLE = 'replies';
 
     /**
      * @var mixed
@@ -28,10 +33,14 @@ class Reply extends Model
 
     protected $fillable = [
         'body',
-        'replyAble_id',
+        /*'replyAble_id',
         'replyAble_type',
         'author_id',
-        'thread_id',
+        'thread_id',*/
+    ];
+
+    protected $with = [
+        'likesRelation',
     ];
 
     public function id(): int

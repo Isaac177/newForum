@@ -37,8 +37,6 @@ W
 'app/Http/Controllers/PageController.php,1/5/155f82f9e355350beb08e118974a485a3895a33b
 _
 /resources/views/components/form/error.blade.php,3/1/31e823fa60111790adc8174a6de12ee6065b4de5
-T
-$app/Providers/AppServiceProvider.php,4/8/48b8d8112e9bdd32ee7e25b1224d6739eece1e72
 X
 (app/Http/Requests/ThreadStoreRequest.php,8/c/8c5a727cdf50cf08217b48f3cfb5cf1422e8bf96
 >
@@ -67,8 +65,6 @@ V
 &app/Providers/EventServiceProvider.php,6/d/6d80af2c8eccc15fa62a616067d4270df372f87d
 n
 >database/migrations/2022_10_09_000002_create_threads_table.php,6/c/6cb6e5133085940659668cf66e3a9a9b3e09f4ca
-E
-app/Models/Thread.php,7/a/7aa2ae7130df4902da0bf86798a22c853559ee86
 H
 app/Models/ReplyAble.php,f/9/f92d1cb45ba622a21c1f5f6cf46f2d3ddd066a72
 S
@@ -79,8 +75,6 @@ X
 (app/Http/Requests/CreateReplyRequest.php,c/4/c460bd6cd878342c24392bf75c5fd0bc68da8fbb
 t
 Ddatabase/migrations/2022_12_14_074128_create_notifications_table.php,4/d/4d74eea7228f71e0e306ef1cde5c8d292ca63ef3
-D
-app/Models/Reply.php,5/d/5db2314e09e937e12f6da3e5037f0954c6c8cda4
 Z
 *app/Notifications/NewReplyNotification.php,6/6/6626899c813e58068d954510172026d8afb99e75
 N
