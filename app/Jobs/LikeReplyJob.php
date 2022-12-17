@@ -19,8 +19,6 @@ class LikeReplyJob
         $this->user = $user;
     }
 
-
-
     public function handle()
     {
         if ($this->reply->isLikedBy($this->user)) {
