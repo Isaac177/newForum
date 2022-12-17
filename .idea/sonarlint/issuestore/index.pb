@@ -51,8 +51,6 @@ _
 0resources/views/components/user/avatar.blade.php,d/4/d4b510f1a8101ffd78b4217844ee4f1938549ce1
 ]
 -resources/views/pages/threads/index.blade.php,b/6/b6f78483544afaadcd4a104af6774ca275467939
-[
-+resources/views/components/thread.blade.php,d/a/dae2b038213453eceafa57c655e5208635be7dba
 _
 /resources/views/livewire/reply/delete.blade.php,b/b/bbf5ea6ce95983970005a1c955e84eb1efb7e9ac
 R
