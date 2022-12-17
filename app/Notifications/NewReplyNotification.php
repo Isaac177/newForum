@@ -3,6 +3,7 @@
 namespace App\Notifications;
 
 use App\Mail\NewReplyEmail;
+use App\Models\Subscription;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -15,10 +16,12 @@ class NewReplyNotification extends Notification
     use Queueable;
 
     public $reply;
+    public $subscription;
 
-    public function __construct(Reply $reply)
+    public function __construct(Reply $reply, Subscription $subscription)
     {
         $this->reply = $reply;
+        $this->subscription = $subscription;
     }
 
     public function via($notifiable)
@@ -34,7 +37,7 @@ class NewReplyNotification extends Notification
      */
     public function toMail(User $user)
     {
-        return (new NewReplyEmail($this->reply))
+        return (new NewReplyEmail($this->reply, $this->subscription))
                     ->to($user->emailAddress(), $user->name());
     }
 

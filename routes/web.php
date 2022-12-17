@@ -27,8 +27,10 @@ Route::get('/forum/threads/{category:slug}/{thread:slug}', [ThreadController::cl
 
 /* Subscribe route */
 
-Route::get('/forum/threads/{thread}/subscribe', [ThreadController::class, 'subscribe'])->name('threads.subscribe');
-Route::get('/forum/threads/{thread}/unsubscribe', [ThreadController::class, 'unsubscribe'])->name('threads.unsubscribe');
+Route::get('/forum/threads/{category:slug}/{thread:slug}/subscribe', [ThreadController::class, 'subscribe'])
+    ->name('threads.subscribe');
+Route::get('/forum/threads/{category:slug}/{thread:slug}/unsubscribe', [ThreadController::class, 'unsubscribe'])
+    ->name('threads.unsubscribe');
 
 Route::get('/forum/threads/tag/{tag:slug}', [TagController::class, 'index'])->name('threads.tags.index');
 
@@ -42,7 +44,6 @@ Route::group(['prefix' => 'replies', 'as' => 'replies.'], function () {
     Route::post('/', [ReplyController::class, 'store'])->name('store');
     Route::get('/{reply}', [ReplyController::class, 'show'])->name('show');
     Route::get('reply/{id}/{type}', [ReplyController::class, 'redirect'])->name('replyAble');
-
 });
 
 Route::get('dashboard/users', [PageController::class, 'users'])->name('users');

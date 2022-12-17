@@ -102,10 +102,7 @@ class Thread extends Model implements ReplyAble, SubscriptionAble
     public function author(): User
     {
         return $this->authorRelation;
-    }/*
-    {
-        return $this->belongsTo(User::class, 'author_id');
-    }*/
+    }
 
     public function thread(): Thread
     {

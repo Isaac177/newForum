@@ -93,25 +93,25 @@ class ThreadController extends Controller
         return redirect()->route('threads.index')->with('success', 'Thread updated successfully');
     }
 
-    public function subscribe(Thread $thread, Request $request)
+    public function subscribe(Thread $thread, Category $category, Request $request)
     {
         $thread->authorize(ThreadPolicy::SUBSCRIBE, $thread);
 
         $this->dispatchSync(new SubscribeToSubscriptionAble($request->user(), $thread));
 
         return redirect()
-            ->route('threads.show', [$thread->category->slug, $thread->slug])
+            ->route('threads.subscribe', [$thread->category->slug, $thread->slug])
             ->with('success', 'Subscribed successfully');
     }
 
-    public function unsubscribe(Thread $thread, Request $request)
+    public function unsubscribe(Thread $thread, Category $category, Request $request)
     {
         $thread->authorize(ThreadPolicy::UNSUBSCRIBE, $thread);
 
-        $this->dispatchSync(new UnsubscribeFromSubscriptionAble($request->user(), $thread, true));
+        $this->dispatchSync(new UnsubscribeFromSubscriptionAble($request->user(), $thread));
 
         return redirect()
-            ->route('threads.show', [$thread->category->slug, $thread->slug])
+            ->route('threads.unsubscribe', [$thread->category->slug, $thread->slug])
             ->with('success', 'Unsubscribed successfully');
     }
 }

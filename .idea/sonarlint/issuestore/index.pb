@@ -67,8 +67,6 @@ n
 >database/migrations/2022_10_09_064854_create_replies_table.php,f/4/f47624f71078ebfc3e5f4f3af5603edf2a66da43
 X
 (app/Http/Requests/CreateReplyRequest.php,c/4/c460bd6cd878342c24392bf75c5fd0bc68da8fbb
-Z
-*app/Notifications/NewReplyNotification.php,6/6/6626899c813e58068d954510172026d8afb99e75
 N
 app/Events/ReplyWasCreated.php,b/f/bfca5aea429f83904dc674c68ae0c36c74c61586
 H
@@ -76,8 +74,6 @@ H
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
-Z
-*app/Listeners/sendNewReplyNotification.php,a/d/ad4a0637404f3eea46ea45dd5ee8a79cbf205b8e
 b
 2resources/views/components/dashboard/nav.blade.php,3/1/318eea18c9e0490bc9d4530adc9cbd2857eb6bd2
 B
@@ -96,14 +92,10 @@ S
 0resources/views/components/alerts/main.blade.php,0/9/09b4602d00c1f368651fce6e976d9273d93a31b1
 U
 %database/seeders/UsersTableSeeder.php,2/7/2772f3d7cf5d92e076844d0740f629a6e905056d
-J
-app/Mail/NewReplyEmail.php,d/6/d62c9cdd9974b8171b57336c6fbfed027f83e269
 a
 1resources/views/components/partials/nav.blade.php,e/9/e93e8235a9733960f9f174c52b383eb47a3adb3d
 b
 2resources/views/components/partials/head.blade.php,f/7/f79ab46c96f785920881d6c75f584df29e1fc252
-e
-5resources/views/components/partials/sidenav.blade.php,5/f/5f33b685408fb397ba8d9b5bdc136a1ec1687c4b
 j
 :resources/views/livewire/notifications/indicator.blade.php,6/e/6e59cbb64135fc145a52a451de153b9c065ed178
 W
