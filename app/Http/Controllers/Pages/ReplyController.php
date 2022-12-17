@@ -47,4 +47,11 @@ class  ReplyController extends Controller
         ]);
     }
 
+    public function redirect($id, $type)
+    {
+        $reply = Reply::where('replyAble_id', $id)->where('replyAble_type', $type)->firstOrFail();
+
+        return redirect()->route('threads.show', [$reply->replyAble()->category->slug, $reply->replyAble()->slug]);
+
+    }
 }

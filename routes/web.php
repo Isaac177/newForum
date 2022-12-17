@@ -35,6 +35,7 @@ Route::get('/forum/threads/tag/{tag:slug}', [TagController::class, 'index'])->na
 Route::group(['prefix' => 'replies', 'as' => 'replies.'], function () {
     Route::post('/', [ReplyController::class, 'store'])->name('store');
     Route::get('/{reply}', [ReplyController::class, 'show'])->name('show');
+    Route::get('reply/{id}/{type}', [ReplyController::class, 'redirect'])->name('replyAble');
 
 });
 
