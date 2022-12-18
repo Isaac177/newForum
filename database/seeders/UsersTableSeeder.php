@@ -12,6 +12,7 @@ class UsersTableSeeder extends Seeder
     {
         User::factory()->create([
             'name' => 'Admin',
+
             'email' => 'admin@example.com',
             'password' => bcrypt('password'),
             'type' => User::ADMIN,
@@ -19,6 +20,7 @@ class UsersTableSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'John Doe',
+
             'email' => 'john@example.com',
             'password' => bcrypt('password'),
             'type' => User::DEFAULT,

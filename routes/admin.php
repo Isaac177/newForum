@@ -21,6 +21,4 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::post('tags', [TagController::class, 'store'])->name('tags.store');
     Route::get('tags/{tag}/edit', [TagController::class, 'edit'])->name('tags.edit');
     Route::delete('tags/{tag}', [TagController::class, 'delete'])->name('tags.delete');
-
-
 });

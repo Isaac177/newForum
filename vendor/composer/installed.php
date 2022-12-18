@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '7ad4ee0556935125200f00fc5089f2c01fb3765d',
+        'reference' => 'ad85c912f21965e0bb6b8bde095f9fcc81dcdec7',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -87,6 +87,15 @@
             'replaced' => array(
                 0 => '*',
             ),
+        ),
+        'cyrildewit/eloquent-viewable' => array(
+            'pretty_version' => 'v6.1.0',
+            'version' => '6.1.0.0',
+            'reference' => 'b661b456386d5dd515812adc437d7ed9711d5053',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../cyrildewit/eloquent-viewable',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'dasprid/enum' => array(
             'pretty_version' => '1.0.3',
@@ -514,7 +523,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '7ad4ee0556935125200f00fc5089f2c01fb3765d',
+            'reference' => 'ad85c912f21965e0bb6b8bde095f9fcc81dcdec7',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

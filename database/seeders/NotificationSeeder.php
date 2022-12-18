@@ -10,10 +10,22 @@ class NotificationSeeder extends Seeder
 {
     public function run()
     {
-        Reply::all()->each(function ($reply) {
+        /*Reply::all()->each(function ($reply) {
             $author = $reply->replyAble()->author();
-            $author->notify(new NewReplyNotification($reply));
-        });
+            $subscription = $author->subscriptions()->where('author_id', $reply->replyAble_id)->first();
+            $author->notify(new NewReplyNotification($reply, $subscription));
+        });*/
+
+        $replies = Reply::all();
+
+        foreach ($replies as $reply) {
+            $subscription = $reply->replyAble->subscription;
+            $author = $reply->author;
+
+            if ($author && $subscription) {
+                $author->notify(new NewReplyNotification($reply, $subscription));
+            }
+        }
     }
 }
 

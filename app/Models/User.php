@@ -7,6 +7,8 @@ use App\Traits\ModelHelpers;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -14,7 +16,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     use HasApiTokens;
     use HasFactory;
@@ -45,12 +47,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'two_factor_recovery_codes',
         'two_factor_secret',
     ];
-
-
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
 
     protected $appends = [
         'profile_photo_url',
@@ -100,6 +96,60 @@ class User extends Authenticatable implements MustVerifyEmail
     public function author(): BelongsTo
     {
         return $this->belongsTo(HasAuthor::class);
+    }
+
+    public function threads()
+    {
+        return $this->threadsRelation;
+    }
+
+    public function latestThread(int $limit = 5)
+    {
+        return $this->threadsRelation()->latest()->limit($limit)->get();
+    }
+
+    public function deleteThread()
+    {
+        foreach ($this->threads() as $thread) {
+            $thread->delete();
+        }
+    }
+
+    public function threadsRelation(): HasMany
+    {
+        return $this->hasMany(Thread::class, 'author_id');
+    }
+
+    public function countThreads(): int
+    {
+        return $this->threadsRelation()->count();
+    }
+
+    public function replies()
+    {
+        return $this->replyAble;
+    }
+
+    public function latestReplies(int $limit = 5)
+    {
+        return $this->replyAble()->latest()->limit($limit)->get();
+    }
+
+    public function deleteReplies()
+    {
+        foreach ($this->replies() as $reply) {
+            $reply->delete();
+        }
+    }
+
+    public function countReplies(): int
+    {
+        return $this->replyAble()->count();
+    }
+
+    public function replyAble(): HasMany
+    {
+        return $this->hasMany(Reply::class, 'author_id');
     }
 
 }

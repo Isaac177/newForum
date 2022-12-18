@@ -6,8 +6,6 @@ use App\Mail\NewReplyEmail;
 use App\Models\Subscription;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use App\Models\Reply;
 
@@ -33,7 +31,7 @@ class NewReplyNotification extends Notification
      * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
+     * @return NewReplyEmail
      */
     public function toMail(User $user)
     {

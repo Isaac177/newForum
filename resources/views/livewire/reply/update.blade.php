@@ -6,7 +6,7 @@
                 const textInput = this.$refs.textInput;
                 textInput.focus();
                 console.log('textInput');
-            },
+            }
         }" x-cloak>
 
           <div x-show="!editReply" class="relative">

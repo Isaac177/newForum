@@ -45,7 +45,6 @@
         <div class="pb-4 mb-4 border-b border-gray-200">
             <h2 class="font-bold uppercase">Categories</h2>
         </div>
-
         <ul class="space-y-4">
             <li>
                 <a href="#" class="flex items-center justify-between">

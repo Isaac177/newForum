@@ -8,25 +8,13 @@ class CreateRepliesTable extends Migration
 {
 
     public function up()
-    /*{
-        Schema::create('replies', function (Blueprint $table) {
-            $table->id();
-            $table->text('body');
-            $table->integer('replyAble_id')->nullable();
-            $table->string('replyAble_type')->default('threads')->nullable();
-            $table->foreignId('author_id')->constrained('users');
-            //$table->foreignId('thread_id')->constrained('threads');
-            $table->timestamps();
-        });
-    }*/
     {
         Schema::create('replies', function (Blueprint $table) {
             $table->id();
             $table->text('body');
-            $table->integer('replyAble_id')->nullable();
+            $table->integer('replyAble_id');
             $table->string('replyAble_type')->default('threads')->nullable();
-            $table->bigInteger('author_id')->unsigned();  // Add this line
-            //$table->foreignId('thread_id')->constrained('threads');
+            $table->bigInteger('author_id')->unsigned();
             $table->timestamps();
         });
 
