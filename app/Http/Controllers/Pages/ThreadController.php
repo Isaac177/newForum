@@ -55,6 +55,10 @@ class ThreadController extends Controller
 
     public function show(Category $category, Thread $thread, Reply $reply)
     {
+        views($thread)
+            ->cooldown(60 * 60 * 24) // 24 hours
+            ->record();
+
         return view('pages.threads.show', [
             'category' => $category,
             'thread' => $thread,

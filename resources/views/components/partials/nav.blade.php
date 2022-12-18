@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white shadow">
+<nav x-data="{ open: false }" class="bg-white shadow" style="background: #033353">
     <!-- Primary Navigation Menu -->
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 space-x-12">
@@ -19,7 +19,9 @@
                 <div class="p-2 text-white bg-blue-200 border rounded-l">
                     <x-heroicon-o-search class="w-6 h-6" />
                 </div>
-                <input type="search" name="" id="" class="w-full border-none rounded-r shadow-inner bg-blue-50 focus:ring-blue-200" placeholder="Search Topics">
+                <input type="search" name="" id=""
+                       class="w-full border-none rounded-r shadow-inner bg-blue-50 focus:ring-blue-200"
+                       placeholder="Search Topics">
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -77,7 +79,7 @@
                     </x-jet-dropdown>
                 </div>
                 @else
-                <div class="space-x-4">
+                <div class="space-x-4 text-white">
                     <x-jet-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
                         {{ __('Login') }}
                     </x-jet-nav-link>

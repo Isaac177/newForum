@@ -7,6 +7,8 @@ use App\Traits\HasLikes;
 use App\Traits\HasReplies;
 use App\Traits\HasSubscriptions;
 use App\Traits\HasTags;
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -14,7 +16,7 @@ use Illuminate\Support\Str;
 
 
 
-class Thread extends Model implements ReplyAble, SubscriptionAble
+class Thread extends Model implements ReplyAble, SubscriptionAble, Viewable
 {
     use HasFactory;
     use HasTags;
@@ -22,6 +24,7 @@ class Thread extends Model implements ReplyAble, SubscriptionAble
     use HasAuthor;
     use HasReplies;
     use HasSubscriptions;
+    use InteractsWithViews;
 
     const TABLE = 'threads';
 

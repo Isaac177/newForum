@@ -1,8 +1,7 @@
 
-<article class="p-5 bg-white shadow">
-
+<article class="p-5 shadow rounded-3 thread-container cursor-pointer focus:bg-green-100 hover:bg-green-100"
+         style="background: #01365a; border-radius: 6px">
     <div class="grid grid-cols-8 gap-3 relative">
-
         {{-- Avatar --}}
         <div class="col-span-1">
             <x-user.avatar :user="$thread->author()"></x-user.avatar>
@@ -10,35 +9,35 @@
 
         {{-- Content --}}
         <div class="col-span-6 space-y-4">
-            <a href="{{ route('threads.show', [$thread->category->slug, $thread->slug]) }}" class="space-y-2">
+            <a href="{{ route('threads.show', [$thread->category->slug, $thread->slug]) }}"
+               class="space-y-2 text-green-400">
                 <h2 class="text-xl tracking-wide hover:text-blue-400">
                     {{ $thread->title()}}
                 </h2>
-                <p class="text-gray-500">
+                <p class="text-white">
                     {{ $thread->excerpt() }}
                 </p>
             </a>
 
             {{-- Indicators --}}
             <div class="flex space-x-6">
-
                 {{-- Likes Count --}}
 
                 <div class="flex items-center space-x-2">
                     <x-heroicon-o-heart class="w-5 h-5 text-red-300" />
-                    <span class="text-xs font-bold">{{ count($thread->likes()) }}</span>
+                    <span class="text-xs font-bold text-white">{{ count($thread->likes()) }}</span>
                 </div>
 
                 {{-- Comments Count --}}
                 <div class="flex items-center space-x-2">
                     <x-heroicon-o-chat-alt class="w-4 h-4 text-green-400" />
-                    <span class="text-xs text-gray-500">{{ $thread->replies()->count() }}</span>
+                    <span class="text-xs text-white">{{ $thread->replies()->count() }}</span>
                 </div>
 
                 {{-- Views Count --}}
                 <div class="flex items-center space-x-2">
                     <x-heroicon-o-eye class="w-4 h-4 text-blue-400" />
-                    <span class="text-xs text-gray-500">125</span>
+                    <span class="text-xs text-white">{{ views($thread)->count() }}</span>
                 </div>
 
                 {{-- Post Date --}}
@@ -46,7 +45,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span class="text-xs text-gray-500">
+                    <span class="text-xs text-white">
                         {{ $thread->created_at->diffForHumans() }}
                     </span>
                 </div>
@@ -86,11 +85,11 @@
                         Delete
                     </x-links.secondary>
                 </form>
-                @endcan--}}
+                @endcan
 
                 @can(App\Policies\ThreadPolicy::DELETE, $thread)
                     <livewire:thread.delete :thread="$thread" :key="$thread->id()"/>
-                @endcan
+                @endcan--}}
             </div>
         </div>
     </div>

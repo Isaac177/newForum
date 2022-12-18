@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <main class="wrapper">
+    <main class="wrapper" style="background: #001625">
         <section class="grid grid-cols-4 gap-8 mt-8">
             <x-partials.sidenav />
             <div class="flex flex-col col-span-3 gap-y-4">

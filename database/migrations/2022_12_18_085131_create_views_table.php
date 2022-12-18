@@ -20,11 +20,6 @@ class CreateViewsTable extends Migration
      */
     protected $table;
 
-    /**
-     * Create a new migration instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->schema = Schema::connection(
@@ -34,11 +29,6 @@ class CreateViewsTable extends Migration
         $this->table = config('eloquent-viewable.models.view.table_name');
     }
 
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         $this->schema->create($this->table, function (Blueprint $table) {
@@ -50,11 +40,6 @@ class CreateViewsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists($this->table);

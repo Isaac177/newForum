@@ -1,8 +1,6 @@
 
 F
 config/filesystems.php,0/8/0851bcf6cd0903bba3a25c52b3b65e4e473a57d6
-T
-$resources/views/auth/login.blade.php,f/b/fb3cbd7f4b7fd6fa26794a37d7b2f8f783688ff9
 p
 @database/migrations/2022_10_17_171437_create_taggables_table.php,4/7/477e04be53d6d482d9c5bc967d5fd4827b6fa627
 T
@@ -35,12 +33,6 @@ X
 (app/Http/Requests/ThreadStoreRequest.php,8/c/8c5a727cdf50cf08217b48f3cfb5cf1422e8bf96
 >
 routes/api.php,b/3/b337d07ab0e7d54bf5547a0321a43ecafbd73ec1
-W
-'resources/views/layouts/guest.blade.php,c/d/cd310c8920f40013a22d1f387db402a6d488249e
-d
-4resources/views/components/partials/footer.blade.php,e/a/eab83f7a083b8e482c35dc493ddf43e4afb4caaa
-`
-0resources/views/components/user/avatar.blade.php,d/4/d4b510f1a8101ffd78b4217844ee4f1938549ce1
 _
 /resources/views/livewire/reply/delete.blade.php,b/b/bbf5ea6ce95983970005a1c955e84eb1efb7e9ac
 R
@@ -58,26 +50,14 @@ N
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
-b
-2resources/views/components/dashboard/nav.blade.php,3/1/318eea18c9e0490bc9d4530adc9cbd2857eb6bd2
 B
 tailwind.config.js,0/9/0918cbb76f2c44f223706cec9d31a32cd1177ce4
-H
-resources/css/styles.css,d/d/ddfa1bec858354166bb07892eb739434feaa6c8a
-E
-resources/css/app.css,f/b/fb832949a8835b7bba860cb482ee63cd29bba09b
-Q
-!resources/views/welcome.blade.php,0/c/0c96dd63e07fb2e889aeaea5cbabd89d0d09f1fb
 T
 $database/factories/ThreadFactory.php,7/0/70df03bb5eb2fa379ceb49852737c918275152f0
 S
 #database/seeders/DatabaseSeeder.php,a/c/aca1efccd4101e0c9bdd34803577859ace08ef45
 `
 0resources/views/components/alerts/main.blade.php,0/9/09b4602d00c1f368651fce6e976d9273d93a31b1
-a
-1resources/views/components/partials/nav.blade.php,e/9/e93e8235a9733960f9f174c52b383eb47a3adb3d
-b
-2resources/views/components/partials/head.blade.php,f/7/f79ab46c96f785920881d6c75f584df29e1fc252
 j
 :resources/views/livewire/notifications/indicator.blade.php,6/e/6e59cbb64135fc145a52a451de153b9c065ed178
 W
@@ -86,8 +66,6 @@ f
 6resources/views/livewire/notifications/count.blade.php,7/4/745e3f67f60ab5578aa606a591885b6e09cb4033
 R
 "app/Http/Livewire/Reply/Update.php,c/c/cc06f200602662a8aeae78a8722af85ecca65320
-U
-%resources/views/layouts/app.blade.php,4/e/4e52e2a63befd1dc69600001e78b80ebece1ac9b
 Z
 *resources/views/emails/new_reply.blade.php,8/7/87edad901f8d99932f274388682b83071165188e
 f

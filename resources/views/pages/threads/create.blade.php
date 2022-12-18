@@ -6,7 +6,7 @@
         <section class="flex flex-col col-span-3 gap-y-4">
             <small class="text-sm text-gray-400">discussion>create</small>
 
-            <article class="p-5 bg-white shadow">
+            <article class="p-5 bg-white shadow" style=" border-radius: 6px">
                 <div class="grid grid-cols-8">
 
                     {{-- Avatar --}}

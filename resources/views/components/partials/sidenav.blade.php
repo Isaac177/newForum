@@ -1,6 +1,6 @@
-<aside class="col-span-1 space-y-6 text-gray-600">
+<aside class="col-span-1 space-y-6 text-gray-600" style="background: #001625">
 
-    <div class="p-4 space-y-4 bg-white shadow">
+    <div class="p-4 space-y-4 shadow" style="background: #01365a; border-radius: 6px">
         <div>
             {{-- Start Discusson Button --}}
             <a href="{{ route('threads.create') }}"
@@ -41,11 +41,11 @@
     </div>
 
     {{-- Categories --}}
-    <div class="p-4 space-y-4 bg-white shadow">
+    <div class="p-4 space-y-4 shadow" style="background: #01365a; border-radius: 6px">
         <div class="pb-4 mb-4 border-b border-gray-200">
-            <h2 class="font-bold uppercase">Categories</h2>
+            <h2 class="font-bold uppercase text-green-400">Categories</h2>
         </div>
-        <ul class="space-y-4">
+        <ul class="space-y-4 text-white">
             <li>
                 <a href="#" class="flex items-center justify-between">
                     Category One
@@ -79,8 +79,8 @@
         </ul>
     </div>
 
-    <div class="p-4 space-y-4 bg-white shadow">
-        <ul class="space-y-4 text-gray-500">
+    <div class="p-4 space-y-4 shadow text-white" style="background: #01365a; border-radius: 6px">
+        <ul class="space-y-4">
             <li>
                 <a href="#" class="flex items-center space-x-2">
                     <x-heroicon-s-star class="w-5 h-5 text-yellow-500" />
@@ -101,6 +101,4 @@
             </li>
         </ul>
     </div>
-
-
 </aside>
