@@ -25,6 +25,8 @@ Route::post('/forum/threads', [ThreadController::class, 'store'])->name('threads
 Route::get('/forum/threads/{thread:slug}/edit', [ThreadController::class, 'edit'])->name('threads.edit');
 Route::post('/forum/threads/{thread:slug}', [ThreadController::class, 'update'])->name('threads.update');
 Route::get('/forum/threads/{category:slug}/{thread:slug}', [ThreadController::class, 'show'])->name('threads.show');
+/* Thread destroy*/
+Route::delete('/forum/threads/{thread:slug}', [ThreadController::class, 'destroy'])->name('threads.destroy');
 
 Route::get('/forum/threads/{category:slug}/{thread:slug}/subscribe', [ThreadController::class, 'subscribe'])
     ->name('threads.subscribe');

@@ -14,6 +14,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->text('bio', 160)->default('');
             $table->string('email')->unique();
+            $table->string('api_token')->nullable();
             $table->smallInteger('type')->default('1');
             //$table->timestamp('email_verified_at')->nullable();
             $table->string('password');

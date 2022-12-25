@@ -13,7 +13,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Sanctum\HasApiTokens;
+use Laravel\Passport\HasApiTokens;
 
 
 class User extends Authenticatable
@@ -135,12 +135,12 @@ class User extends Authenticatable
         return $this->replyAble()->latest()->limit($limit)->get();
     }
 
-    public function deleteReplies()
+   /* public function deleteReplies()
     {
         foreach ($this->replies() as $reply) {
             $reply->delete();
         }
-    }
+    }*/
 
     public function countReplies(): int
     {

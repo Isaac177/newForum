@@ -65,3 +65,12 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     ];
 }
+/*
+POST /oauth/token
+
+client_id=1
+client_secret=DaMCYwwJHced9H46euox6V8lHkTn8lblaQa8VzCd
+grant_type=password
+username=user@example.com
+password=password*/
+

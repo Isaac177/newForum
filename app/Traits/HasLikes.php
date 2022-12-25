@@ -18,13 +18,13 @@ trait HasLikes
         return $this->morphMany(Like::class, 'likesRelations', 'likeable_type', 'likeable_id');
     }
 
-    public static function bootHasLikes()
+    /*public static function bootHasLikes()
     {
         static::deleting(function ($model) {
             $model->deleteLikes()->delete();
             $model->unsetRelation('likesRelations');
         });
-    }
+    }*/
 
     public function isLikedBy(User $user): bool
     {

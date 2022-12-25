@@ -111,5 +111,15 @@ class Thread extends Model implements ReplyAble, SubscriptionAble, Viewable
     {
         return $this;
     }
+
+    public function deleteReplies()
+    {
+        $this->repliesRelation->each->delete();
+    }
+
+    public function deleteLikes()
+    {
+        $this->likesRelation->each->delete();
+    }
 }
 

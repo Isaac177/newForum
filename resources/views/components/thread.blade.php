@@ -85,11 +85,11 @@
                         Delete
                     </x-links.secondary>
                 </form>
-                @endcan
+                @endcan--}}
 
                 @can(App\Policies\ThreadPolicy::DELETE, $thread)
                     <livewire:thread.delete :thread="$thread" :key="$thread->id()"/>
-                @endcan--}}
+                @endcan
             </div>
         </div>
     </div>

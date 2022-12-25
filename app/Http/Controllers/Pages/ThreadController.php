@@ -37,7 +37,6 @@ class ThreadController extends Controller
         ]);
     }
 
-
     public function create()
     {
         return view('pages.threads.create', [
@@ -87,7 +86,6 @@ class ThreadController extends Controller
         ]);
     }
 
-
     public function update(ThreadStoreRequest $request, Thread $thread)
     {
         $this->authorize(ThreadPolicy::UPDATE, $thread);
@@ -117,5 +115,14 @@ class ThreadController extends Controller
         return redirect()
             ->route('threads.unsubscribe', [$thread->category->slug, $thread->slug])
             ->with('success', 'Unsubscribed successfully');
+    }
+
+    public function destroy(Thread $thread)
+    {
+        $thread->authorize(ThreadPolicy::DELETE, $thread);
+
+        $thread->delete();
+
+        return redirect()->route('threads.index')->with('success', 'Thread deleted successfully');
     }
 }
