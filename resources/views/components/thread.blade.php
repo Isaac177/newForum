@@ -1,6 +1,6 @@
 
-<article class="p-5 shadow rounded-3 thread-container cursor-pointer focus:bg-green-100 hover:bg-green-100"
-         style="background: #01365a; border-radius: 6px">
+<article class="p-5 shadow rounded-3 thread-container cursor-pointer focus:bg-green-100 hover:bg-green-100 shadow-lg"
+         style="background: #01365a; border-radius: 6px; box-shadow: #0dcaf0 0 0 0 1px inset;">
     <div class="grid grid-cols-8 gap-3 relative">
         {{-- Avatar --}}
         <div class="col-span-1">

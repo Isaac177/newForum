@@ -1,0 +1,7 @@
+
+^	php:S18082"JPut one space between the closing parenthesis and the opening curly brace.(Ü¨¡S
+k	php:S18081"QPut exactly one space between the "function" keyword and the opening parenthesis.(ú¶àùÿÿÿÿ
+e	php:S18082"QPut exactly one space between the "function" keyword and the opening parenthesis.(Ü¨¡S
+@	php:S2003"&Replace "require" with "require_once".(àœøüÿÿÿÿ
+3php:S125?"Remove this commented out code.(–±Ù
+f	php:S4833"LReplace "require" with namespace import mechanism through the "use" keyword.(àœøüÿÿÿÿ
